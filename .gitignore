@@ -59,3 +59,8 @@ db.sqlite3-journal
 
 # uvicorn logs
 *.pid
+
+models/
+*.pkl
+*.joblib
+*.h5
