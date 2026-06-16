@@ -7,23 +7,55 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.py[cod]
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+
+# pdm
+.pdm.toml
+__pypackages__/
 
 # Jupyter
 .ipynb_checkpoints/
-
-# Data / models / pickles
-*.csv
-*.pkl
+*/.ipynb_checkpoints/
 
 # VS Code
 .vscode/
+.idea/
 
 # Windows files
 Thumbs.db
 .DS_Store
+ehthumbs.db
+
+
 
 # Env / secrets
 .env
 
 # Logs
 *.log
+logs/
+
+
+$RECYCLE.BIN/
+*.lnk
+Desktop.ini
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/
+
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+*.sqlite
+*.db
+
+# uvicorn logs
+*.pid
