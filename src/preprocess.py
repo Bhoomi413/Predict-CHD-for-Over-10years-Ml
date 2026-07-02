@@ -12,7 +12,6 @@ def load_data(path):
     df.dropna(subset=['education', 'cigsPerDay', 'BPMeds', 'totChol', 'BMI', 'heartRate'], inplace=True)
     return df
 
-from sklearn.impute import KNNImputer
 def impute_glucose(X):
     X = X.copy()
     knn = KNNImputer(weights='distance')
@@ -33,9 +32,13 @@ def clip_outliers(X):
 
 def encode_education(X):
     X = X.copy()
-    dummies = pd.get_dummies(X['education'])
-    dummies.columns = ['education_1', 'education_2', 'education_3', 'education_4']
-    dummies = dummies.astype(int) 
+    X['education'] = X['education'].astype(int)
+    dummies = pd.get_dummies(X['education'], prefix='education')
+    for col in ['education_1', 'education_2', 'education_3', 'education_4']:
+        if col not in dummies.columns:
+            dummies[col] = 0
+    dummies = dummies[['education_1', 'education_2', 'education_3', 'education_4']]
+    dummies = dummies.astype(int)
     X = pd.concat([X, dummies], axis=1)
     X = X.drop(['education', 'education_4'], axis=1, errors='ignore')
     return X
