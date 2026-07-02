@@ -44,7 +44,7 @@ if st.button('Predict Risk'):
     }
 
     try:
-        response = requests.post('API_URL', json=data)
+        response = requests.post(API_URL, json=data)
         st.write(response)
         # st.write(response.text)
         result = response.json()
