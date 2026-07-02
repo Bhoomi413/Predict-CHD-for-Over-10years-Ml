@@ -18,7 +18,19 @@ K-Nearest Neighbors (KNN) Imputation : KNN Imputation was used to estimate missi
 
 Complete Case Analysis (CCA) : Rows containing missing values less than 5% were removed to analyze the dataset without missing data.
 
+SMOTE-Tomek was evaluated but did not improve performance due to dataset size and distribution sensitivity; SMOTE alone provided better generalization
 
 ### Tools and Libraries
 
 Pandas, Missingno, Scikit-learn, matplotlib, seaborn, numpy
+
+
+#Chose Logistic Regression
+Our model identified 62 out of 88 high-risk patients correctly. The 177 cases flagged as high-risk but testing negative represent individuals who would receive further clinical screening — a standard and acceptable outcome in preventive healthcare, where early intervention is prioritized over perfect precision
+
+## Repository Status & Access
+
+This project is actively used as part of my professional portfolio and B.Tech major project evaluation. 
+
+**Recruiters & Hiring Managers:** You are welcome to clone, explore, and test the RAG pipeline. If you have questions about the system architecture or AI integration, feel free to reach out!
+**Students & Peer Reviewers:** This code is indexed for academic evaluation. Please use it for inspiration or reference only. To maintain academic integrity, do not copy or replicate these files for university submissions.

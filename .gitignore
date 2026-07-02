@@ -64,3 +64,5 @@ models/
 *.pkl
 *.joblib
 *.h5
+
+data/

@@ -1,0 +1,17 @@
+fastapi
+imbalanced-learn
+joblib
+jupyterlab
+matplotlib
+missingno
+numpy
+pandas
+pydantic
+pydantic_core
+python-dotenv
+python-multipart
+scikit-learn
+seaborn
+streamlit
+uvicorn
+xgboost
