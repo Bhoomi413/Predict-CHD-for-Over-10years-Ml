@@ -5,7 +5,6 @@ import pandas as pd
 
 app = FastAPI()
 pipeline= joblib.load('models/logisticRegression_pipe.pkl')
-print(pipeline.feature_names_in_) 
 class PatientData(BaseModel):
     age: float
     education: float
