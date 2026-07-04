@@ -1,9 +1,9 @@
 fastapi
-uvicorn
-scikit-learn
-pandas
-numpy
-joblib
+uvicorn==0.49.0
+scikit-learn==1.8.0
+pandas==3.0.1
+numpy==2.4.2
+joblib==1.5.3
 imbalanced-learn
 python-dotenv
 pydantic
