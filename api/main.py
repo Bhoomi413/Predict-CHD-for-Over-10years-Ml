@@ -21,7 +21,10 @@ class PatientData(BaseModel):
 
 @app.post('/predict')
 def predict(data: PatientData):
-    df = pd.DataFrame([data.model_dump()])
-    prob = pipeline.predict_proba(df)[0][1]
-    risk = 'High Risk' if prob >= 0.5 else 'Low Risk'
-    return {'risk_probability': round(float(prob), 3), 'risk': risk}
+    try:
+        df = pd.DataFrame([data.model_dump()])
+        prob = pipeline.predict_proba(df)[0][1]
+        risk = 'High Risk' if prob >= 0.5 else 'Low Risk'
+        return {'risk_probability': round(float(prob), 3), 'risk': risk}
+    except Exception as e:
+        return {"error": str(e)}
