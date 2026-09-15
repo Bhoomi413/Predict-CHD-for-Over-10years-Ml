@@ -6,7 +6,7 @@ from imblearn.pipeline import Pipeline as ImbPipeline
 from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from src.utils import IQROutlierClipper
+from utils import IQROutlierClipper
 import joblib
 
 
