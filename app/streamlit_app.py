@@ -44,20 +44,21 @@ if st.button('Predict Risk'):
     }
 
     try:
-        response = requests.post(API_URL, json=data)
-        result = response.json()
-        prob = result['risk_probability']
-        risk = result['risk']
-        if risk == 'High Risk':
-            st.error(f"{risk} — {prob*100:.1f}% probability of CHD in 10 years")
+        response = requests.post(API_URL, json=data, timeout=5)
+        if response.status_code == 200:
+            result = response.json()
+            prob = result['risk_probability']
+            risk = result['risk']
+            
+            prob_percent = prob * 100
+            if risk == 'High Risk':
+                st.error(f"{risk} — {prob_percent:.1f}% probability of CHD in 10 years")
+            else:
+                st.success(f"{risk} — {prob_percent:.1f}% probability of CHD in 10 years")
         else:
-            st.success(f"{risk} — {prob*100:.1f}% probability of CHD in 10 years")
-
-    except Exception as e:
-        if 'response' in locals() and response is not None:
-            st.write(f"Status Code: {response.status_code}")
-            st.write(f"Error Details: {response.text}")
-        st.error(f"API error: {e}")
+            st.error(f"API Error ({response.status_code}): {response.text}")
+    except requests.exceptions.RequestException as e:
+        st.error(f"Failed to connect to backend API: {e}")
 
 st.divider()
 
