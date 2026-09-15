@@ -3,6 +3,12 @@ from pydantic import BaseModel
 import joblib
 import pandas as pd
 
+import sys
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.append(str(BASE_DIR))
+sys.path.append(str(BASE_DIR / "src"))
+
 EXPECTED_COLUMNS = [
     'age', 'education', 'sex', 'cigsPerDay', 'BPMeds', 'prevalentStroke', 'diabetes', 'totChol', 'sysBP', 
     'BMI', 'heartRate', 'glucose'

@@ -4,7 +4,10 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-API_URL = st.secrets.get("API_URL", os.getenv("API_URL", "http://127.0.0.1:8000/predict"))
+try:
+    API_URL = st.secrets.get("API_URL")
+except:
+    API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/predict")
 
 st.title("Cardiovascular Risk Prediction")
 st.write("Enter patient details to predict 10-year CHD risk")
