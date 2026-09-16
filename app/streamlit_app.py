@@ -18,17 +18,17 @@ with col1:
     sex = st.selectbox('Sex', ['M', 'F'])
     age = st.number_input('Age', min_value=1, max_value=120, value=50)
     education = st.selectbox('Education Level', [1.0, 2.0, 3.0, 4.0])
-    cigsPerDay = st.number_input('Cigarettes Per Day', min_value=0.0, value=0.0)
+    cigsPerDay = st.number_input('Cigarettes Per Day', min_value=0.0, value=0.0,step=1.0)
     BPMeds = st.selectbox('On BP Medication', [0.0, 1.0])
     prevalentStroke = st.selectbox('Prevalent Stroke', [0.0, 1.0])
     diabetes = st.selectbox('Diabetes', [0.0, 1.0])
 
 with col2:
-    totChol = st.number_input('Total Cholesterol', min_value=0.0, value=200.0)
-    sysBP = st.number_input('Systolic BP', min_value=0.0, value=120.0)
-    BMI = st.number_input('BMI', min_value=0.0, value=25.0)
-    heartRate = st.number_input('Heart Rate', min_value=0.0, value=75.0)
-    glucose = st.number_input('Glucose', min_value=0.0, value=80.0)
+    totChol = st.number_input('Total Cholesterol', min_value=100.0, max_value=700.0, value=237.0,step=1.0)
+    sysBP = st.number_input('Systolic BP', min_value=80.0, max_value=300.0, value=133.0, step=1.0)
+    BMI = st.number_input('BMI', min_value=15.0, max_value=60.0, value=25.8, step=0.1)
+    heartRate = st.number_input('Heart Rate',  min_value=40.0, max_value=150.0, value=76.0,step=1.0)
+    glucose = st.number_input('Glucose', min_value=0.0, value=80.0,step=1.0)
 
 if st.button('Predict Risk'):
     data = {
